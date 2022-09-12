@@ -1,7 +1,6 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.db.models import Sum, F
-from django.db.models.signals import post_save, pre_save
+from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
 
@@ -22,7 +21,7 @@ class Item(models.Model):
 class Discount(models.Model):
     name = models.CharField('Наименование', max_length=100)
     amount = models.IntegerField(
-        'Размер скидки',
+        'Cкидка, %',
         validators=[MinValueValidator(0), MaxValueValidator(100)],
     )
 
