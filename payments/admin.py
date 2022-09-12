@@ -1,11 +1,20 @@
 from django.contrib import admin
 
-from .models import Order, Tax, Discount, Item
+from .models import Order, Tax, Discount, Item, OrderItem
+
+
+class ProductItemInline(admin.TabularInline):
+    model = OrderItem
+    readonly_fields = ('price', )
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ProductItemInline]
+    list_display = (
+        'id',
+        'total_price',
+    )
 
 
 @admin.register(Tax)
