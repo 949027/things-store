@@ -10,7 +10,7 @@ from payments.models import Order
 @api_view(['GET'])
 def get_payment_id(request, order_id):
     try:
-        order = Order.objects.get(id=order_id)
+        order = Order.objects.select_related('discount', 'tax').get(id=order_id)
     except Order.DoesNotExist:
         return Response('Order does not exist')
 
@@ -45,7 +45,7 @@ def get_payment_id(request, order_id):
             'quantity': order_item.quantity,
             'tax_rates': taxes,
         }
-        for order_item in order.order_items.all()
+        for order_item in order.order_items.select_related('item')
     ]
 
     session = stripe.checkout.Session.create(
