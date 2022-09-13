@@ -18,7 +18,7 @@ git clone https://github.com/949027/things-store
 Необязательно:
 - `DEBUG` - [дебаг-режим](https://docs.djangoproject.com/en/4.1/ref/settings/#debug). По умолчанию - True.
 - `ALLOWED_HOSTS` - [список допустимых хостов](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts). По умолчанию - 127.0.0.1, localhost.
-- `DB_URL` - конфигурация БД, указывается в [виде URL](https://github.com/jazzband/dj-database-url). Например `postgres://test_user:test_password@localhost:5432/test_db` (для запуска в Docker используйте `db` вместо `localhost`). Если значение не указано, то используется SQLite, имя файла `db.sqlite3`.
+- `DB_URL` - конфигурация БД, указывается в [виде URL](https://github.com/jazzband/dj-database-url). Например `postgres://test_user:qwerty123@localhost:5432/test_db`.  Если значение не указано, то при запуске на локальной машине используется SQLite.
 
 ## Запуск на локальной машине 
 1) [Python3](https://www.python.org/downloads/) должен быть уже установлен.

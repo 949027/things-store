@@ -7,7 +7,9 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: 'test_db'
+      POSTGRES_DB: ${POSTGRES_DB-test_db}
+      POSTGRES_USER: ${POSTGRES_USER-test_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD-qwerty123}
     env_file:
       - ./.env
     ports:
@@ -23,7 +25,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      POSTGRES_DB: 'test_db'
+      DATABASE_URL: ${DB_URL-postgres://test_user:qwerty123@db:5432/test_db}
     env_file:
       - ./.env
 
