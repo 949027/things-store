@@ -46,6 +46,7 @@ class Order(models.Model):
         verbose_name='Скидка',
         related_name='orders',
         blank=True,
+        null=True,
         on_delete=models.CASCADE,
     )
     tax = models.ForeignKey(
@@ -53,6 +54,7 @@ class Order(models.Model):
         verbose_name='Налог',
         related_name='orders',
         blank=True,
+        null=True,
         on_delete=models.CASCADE,
     )
     total_price = models.DecimalField(
