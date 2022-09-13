@@ -7,7 +7,8 @@
     {% for item in items %}
       <h1>{{ item.item.name }}</h1>
       <p>{{ item.item.description }}</p>
-      <p>{{ item.item.price }} {{ item.item.currency }}</p>
+      <p>{{ item.item.price }} руб. за шт</p>
+      <p>{{ item.quantity }} шт</p>
     {% endfor %}
     <button id="buy-button">Buy</button>
     <script src="https://js.stripe.com/v3/"></script>
