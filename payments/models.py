@@ -71,7 +71,7 @@ class Order(models.Model):
     def total_price(self):
         total_price = 0
         for item in self.order_items.all():
-            total_price += item.price * item.quantity
+            total_price += item.price
         if self.discount:
             total_price -= total_price * self.discount.amount / 100
         if self.tax:

@@ -40,7 +40,7 @@ def get_payment_id(request, order_id):
                 'product_data': {
                     'name': order_item.item.name,
                 },
-                'unit_amount': int(order_item.price * 100),
+                'unit_amount': int(order_item.item.price * 100),
             },
             'quantity': order_item.quantity,
             'tax_rates': taxes,
